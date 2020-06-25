@@ -1,5 +1,7 @@
 # Hangman Over Socket
 
+![logo](/images/demo.png)
+
 ## How to install and run:
 
 1. clone/download repository <br>
