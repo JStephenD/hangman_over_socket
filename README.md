@@ -24,7 +24,7 @@
 
 ## Gameplay
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Desktop Browser&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Phone Browser
+Desktop Browser | Phone Browser
 --------------- | -------------
 1. ctrl click on the link provided by client.py | 1. goto \<ipadd\>:5050
 2. or go to \<ipadd\>:5050 | 
