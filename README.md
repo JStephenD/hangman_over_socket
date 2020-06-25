@@ -26,8 +26,8 @@
 
 Desktop Browser | Phone Browser
 --------------- | -------------
-1. ctrl click on the link provided by client.py | 1. goto \<ipadd\>:5050
-2. or go to \<ipadd\>:5050 | 
+ctrl click on the link provided by client.py | goto \<ipadd\>:5050
+or go to \<ipadd\>:5050 | asd
 \# guess the word | \# guess the word
 
 > ipadd = ip address of the computer running client.py
