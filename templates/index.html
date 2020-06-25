@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .letter {
+            padding: 0;
+            width: 19vw;
+            height: 10vh;
+            margin-right: 4vw;
+            margin-bottom: 2vh;
+        }
+        .dnone {
+            display: none;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+</head>
+<body>
+    <button class="letter" id='a' name='a'>A</button>
+    <button class="letter" id='b' name='b'>B</button>
+    <button class="letter" id='c' name='c'>C</button>
+    <button class="letter" id='d' name='d'>D</button>
+    <button class="letter" id='e' name='e'>E</button>
+    <button class="letter" id='f' name='f'>F</button>
+    <button class="letter" id='g' name='g'>G</button>
+    <button class="letter" id='h' name='h'>H</button>
+    <button class="letter" id='i' name='i'>I</button>
+    <button class="letter" id='j' name='j'>J</button>
+    <button class="letter" id='k' name='k'>K</button>
+    <button class="letter" id='l' name='l'>L</button>
+    <button class="letter" id='m' name='m'>M</button>
+    <button class="letter" id='n' name='n'>N</button>
+    <button class="letter" id='o' name='o'>O</button>
+    <button class="letter" id='p' name='p'>P</button>
+    <button class="letter" id='q' name='q'>Q</button>
+    <button class="letter" id='r' name='r'>R</button>
+    <button class="letter" id='s' name='s'>S</button>
+    <button class="letter" id='t' name='t'>T</button>
+    <button class="letter" id='u' name='u'>U</button>
+    <button class="letter" id='v' name='v'>V</button>
+    <button class="letter" id='w' name='w'>W</button>
+    <button class="letter" id='x' name='x'>X</button>
+    <button class="letter" id='y' name='y'>Y</button>
+    <button class="letter" id='z' name='z'>Z</button>
+
+
+    <script type="text/javascript" defer>
+        var socket = io.connect('http://192.168.1.4:5050')
+        
+        var letters = document.getElementsByClassName('letter');
+        letters = Array.from(letters);
+
+        letters.forEach((el) => {
+            el.addEventListener('click', (ev) => {
+                src = ev.target;
+                console.log(`clicked ${src.name}`)
+                socket.emit('letter clicked', {
+                    "src": src.innerHTML
+                })
+            });
+        });
+
+        socket.on('connected', () => {
+            console.log('connected')
+        });
+
+        socket.on('disconnected', () => {
+            console.log('disconnected')
+        });
+
+        socket.on('update buttons', (guessed) => {
+            letters.forEach((letter) => {
+                if (letter.classList.contains('dnone')) {
+
+                } else {
+                    guessed.forEach((guess) => {
+                        if (letter.innerHTML == guess) {
+                            letter.classList.add('dnone');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
