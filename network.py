@@ -3,7 +3,7 @@ import pickle
 
 class Network:
     def __init__(self, HEADER=64, PORT=5000, FORMAT='utf-8', DISCONNECT_MSG='!DISCONNECT', \
-                ip_add=None, is_server=False, max_connections=1, connections={}):
+                ip_add=None, is_server=False, max_connections=1):
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.header = HEADER
         self.server = socket.gethostbyname(socket.gethostname()) if not ip_add else ip_add
